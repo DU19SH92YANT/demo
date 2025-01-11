@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const connectDB = require ("./db/index.js");
+const connectDB = require ("./src/db/index.js");
 const cors = require("cors")
 require("dotenv").config({path:"./.env"});
-const {app} = require("./app.js")
+const {app} = require("./src/app.js")
 const path = require("path");
 
 app.use(cors({
@@ -14,12 +14,12 @@ app.use(cors({
 app.use(express.json());
 
 
-app.use(express.static(path.resolve(__dirname, "../frontend", "build")));
-console.log(path.resolve(__dirname, "../frontend", "build") ,"ee")
+app.use(express.static(path.resolve(__dirname, "frontend", "build")));
+console.log(path.resolve(__dirname) ,"ee")
 app.get("*", (req, res) => {
-    console.log(path.resolve(__dirname, "../frontend", "build") ,"ee")
+    console.log(path.resolve(__dirname, "frontend", "build") ,"ee")
     
-    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 
 

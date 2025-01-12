@@ -8,7 +8,9 @@ import Home from "./Home/home";
 
 import  { setUser } from "./redux/reducer/userSlice";
 import { useDispatch , useSelector} from "react-redux";
+import Projects from "./Projects/ProjectListing";
 
+import Feed from './SocialMediaApp/Feed'
 const Routers = () => {
   let user = useSelector((state) => state?.user)
   let dispatch = useDispatch()
@@ -31,6 +33,8 @@ const Routers = () => {
           
         
          <Route path="/account" element={<Register />} />
+         <Route path="/projects" element={<Projects />} />
+         <Route path="/feed" element={<Feed />} />
           <Route path="/home" element={<Home />} />
           <Route path="/*" element={<Navigate to="/home" replace />}  />
         </Routes>

@@ -78,7 +78,7 @@ const UserProfile = () => {
 
       console.log(response , "resopose")
       if (response.status === 200) {
-        localStorage.setItem("user" , JSON.stringify(response.data ))
+        response?.data && localStorage.setItem("user" , JSON.stringify(response?.data ))
         dispatch(updateUserProfile({ user: response.data }));
         setEditMode(false);
         alert("Profile updated successfully!");

@@ -39,7 +39,8 @@ export default function Login() {
       
       if(response.status === 200){
         localStorage.setItem("accessToken" , response?.data?.data?.accessToken)
-        localStorage.setItem("user" , JSON.stringify(response?.data?.data?.user))
+        response?.data?.data?.user && localStorage.setItem("user" , JSON.stringify(response?.data?.data?.user)) 
+        
              dispatch(setUser({ user: response?.data?.data?.user, token: response?.data?.data?.accessToken }));
              navigate("/profile")
             }

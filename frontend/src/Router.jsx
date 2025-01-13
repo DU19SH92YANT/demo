@@ -18,10 +18,10 @@ const Routers = () => {
   let token = localStorage.getItem("accessToken")
   let userdata = localStorage.getItem("user")
 
-  if(!user?.token && !user?.user?.name && token && userdata){
+  if(!user?.token && !user?.user && token && userdata){
     
          
-        let data = JSON.parse(userdata)
+        let data = userdata && JSON.parse(userdata) 
         dispatch(setUser({ user: data, token: token }));
   }
   

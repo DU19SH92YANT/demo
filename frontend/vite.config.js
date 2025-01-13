@@ -5,21 +5,23 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
-   base: '/',
-  plugins: [react(),visualizer()],
+  base: '/', // Ensure this is correct for your deployment (default root path)
+  plugins: [
+    react(),
+    visualizer(), // Visualizer plugin for analyzing bundle size
+  ],
   build: {
-    outDir: 'build',
-    chunkSizeWarningLimit: 1000, // Set the limit to 1 MB or any value you prefer
+    outDir: 'build', // Vercel expects the output directory to be specified
+    chunkSizeWarningLimit: 1000, // Adjust warning limit for chunk size
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'], // Split React libraries
-          // Split Lodash or any other large library
+          vendor: ['react', 'react-dom'], // Separate vendor libraries for optimization
+          // Add any additional libraries to split
         },
       },
     },
   },
-
 
   // for local
   // plugins: [react()],

@@ -8,8 +8,16 @@ const path = require("path");
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
+    //  origin: 'http://localhost:3000',
+     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }))
+
+app.options('*', cors());
+
+
+
 // Middleware to parse JSON
 app.use(express.json());
 

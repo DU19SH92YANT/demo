@@ -1,8 +1,18 @@
 const express = require("express")
 
 const cookieParser = require("cookie-parser")
+// const userRoutes = require('./routes/userRoutes');
+const postRoutes = require('./router/post.router.js');
+
+
+
+// Routes
+// app.use('/api/users', userRoutes);
+
 
 const app = express()
+
+
 
 
 
@@ -25,6 +35,7 @@ const userRouter  =require('./router/auth.routes.js')
 
 // //routes declaration
 app.use("/auth/v1", userRouter)
+app.use('/api/posts', postRoutes);
 // app.use("/api/v1/users", userRouter)
 // app.use("/api/v1/tweets", tweetRouter)
 // app.use("/api/v1/subscriptions", subscriptionRouter)

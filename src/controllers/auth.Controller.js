@@ -158,3 +158,9 @@ exports.logOutUser = asyncHandler(async(req, res) => {
     .clearCookie("refreshToken", options)
     .json(new ApiResponse(200, {}, "User logged Out"))
 })
+
+
+exports.updateProfile = (req , res)=>{
+    console.log("updateProfile")
+    res.status(200).json("created dsussusu")
+  }

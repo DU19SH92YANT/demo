@@ -19,4 +19,19 @@ export default defineConfig({
       },
     },
   },
+
+
+  // for local
+  // plugins: [react()],
+  // server: {
+  //   port: 3000, // Dev server port
+  //   proxy: {
+  //     // Proxy API requests to the backend server
+  //     '/auth/v1': {
+  //       target: 'http://localhost:8000', // Backend server URL
+  //       changeOrigin: true, // Needed for virtual hosted sites
+  //       rewrite: (path) => path.replace(/^\/auth\/v1/, '/auth/v1'),
+  //     },
+  //   },
+  // },
 })

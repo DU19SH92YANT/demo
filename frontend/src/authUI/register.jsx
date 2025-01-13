@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser, setUser } from '../redux/reducer/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../constant';
 
 const schema = yup.object().shape({
   fullName: yup.string().required('Full Name is required'),
@@ -26,7 +27,7 @@ export default function Registration() {
    
     
     try {
-      const response = await axios.post(`${window.location.origin}/auth/v1/register`, {
+      const response = await axios.post(`${API_URL}/auth/v1/register`, {
         name:data.fullName,
         email:data.email,
         password: data.password,
@@ -54,7 +55,7 @@ export default function Registration() {
     try {
       let token = localStorage.getItem("accessToken")
        const response = await axios.post(
-        'http://localhost:8000/auth/v1/logout',
+        `${API_URL}/auth/v1/logout`,
         {}, // Request body, if needed
         {
           headers: {

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { Box, Card, CardContent, CardActions, Typography, TextField, Button } from '@mui/material';
 import  { setUser } from "../redux/reducer/userSlice";
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../constant';
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email format').required('Email is required'),
@@ -31,7 +32,7 @@ export default function Login() {
     console.log(data);
     
     try {
-      const response = await axios.post(`${window.location.origin}/auth/v1/login`, {
+      const response = await axios.post(`${API_URL}/auth/v1/login`, {
         email:data.email,
         password: data.password,
       });

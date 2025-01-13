@@ -7,11 +7,22 @@ const userSlice = createSlice({
     token: null,
   },
   reducers: {
+    // Sets the initial user and token
     setUser(state, action) {
-        console.log(action , "ddddd")
+      console.log(action, "Setting User");
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
+
+    // Updates the user's profile data
+    updateUserProfile(state, action) {
+      console.log(action, "updateprofile");
+      
+        state.user =  action.payload.user ; // Merge updated fields
+      
+    },
+
+    // Logs out the user and clears the state
     logoutUser(state) {
       state.user = null;
       state.token = null;
@@ -19,5 +30,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, logoutUser } = userSlice.actions;
+export const { setUser, updateUserProfile, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
